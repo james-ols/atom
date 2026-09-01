@@ -15,6 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with Access to Memory (AtoM).  If not, see <http://www.gnu.org/licenses/>.
+ * TO DO: orangeleaf. add aggregations to the query to get facets in the response.
  */
 
 class ApiInformationObjectsBrowseAction extends QubitApiAction
