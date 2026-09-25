@@ -863,6 +863,14 @@ EOF;
             }
         });
 
+        // Orangeleaf Systems C1: allow plugins to augment this import instance before the run begins.
+        // Uses the application dispatcher: plugins enabled via Admin > Plugins
+        // connect there, not to this CLI task's own $this->dispatcher.
+        $this->context->getEventDispatcher()->notify(new sfEvent($import, 'csv.import.pre_run', [
+            'options' => $options,
+            'className' => 'QubitInformationObject',
+        ]));
+
         $import->csv($fh, $skipRows);
 
         // Rebuild entire nested set for IOs
