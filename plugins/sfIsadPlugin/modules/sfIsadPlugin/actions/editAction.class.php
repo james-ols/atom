@@ -207,6 +207,12 @@ class sfIsadPluginEditAction extends InformationObjectEditAction
 
         $this->archivistsNotesComponent->processForm();
 
+        // OLS C3: allow plugins to save additional data on description save.
+        $this->dispatcher->notify(new sfEvent($this, 'informationobject.edit.process_form', [
+            'resource' => $this->resource,
+            'request' => $this->request,
+        ]));
+
         return parent::processForm();
     }
 }

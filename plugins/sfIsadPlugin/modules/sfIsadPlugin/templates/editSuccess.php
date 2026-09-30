@@ -338,6 +338,9 @@
           </div>
         </div>
       </div>
+    <?php if (in_array('olsExtendedFields', (array) sfConfig::get('sf_enabled_modules'))) { ?>
+        <?php echo get_component('olsExtendedFields', 'editAccordion', ['resource' => $resource]); ?>
+    <?php } ?>
       <div class="accordion-item">
         <h2 class="accordion-header" id="description-heading">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#description-collapse" aria-expanded="false" aria-controls="description-collapse">
